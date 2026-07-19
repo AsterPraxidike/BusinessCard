@@ -24,7 +24,13 @@ The front of the card contains the keyboard matrix and visual identity.
 The back contains optional battery, programming header, and personal contact information.
 
 ---
+## design philosiphy 
 
+As buisness cards are handed out for free this board first and formost needed to be cheap to manufacture. 
+
+this is intended to be a showpiece of sorts for my capabilities as a designe. 
+
+---
 ## Features
 
 - 4×12 capacitive touch keyboard matrix
