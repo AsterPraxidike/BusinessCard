@@ -94,6 +94,6 @@ version 1.1 features 3 optional configurations:
 -charger IC and low volt cutoff
   with a low volt cutoff, this allows you to charge the battery from the USB connector. 
 
-the battery remains completely optional and only exists for Bluetooth connectivity
+the battery remains completely optional and only exists for Bluetooth connectivity. they will not be handed out with these components to save cost and space in a wallet (batteries are thick okay? this way the cards are much slimmer, but the options and documentation is there should it be wanted. 
 
   
