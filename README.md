@@ -54,7 +54,7 @@ The board uses a **WCH CH582M**, a low-cost BLE-capable microcontroller with USB
 
 The keyboard is a 48-key capacitive matrix.
 
-The keys use interdigitated copper pads covered by soldermask. They are not mechanical switches. The firmware will csan the matrix by driving row electrodes and measuring capacitive changes on column electrodes.
+The keys use interdigitated copper pads covered by solder mask. They are not mechanical switches. The firmware will scan the matrix by driving row electrodes and measuring capacitive changes on column electrodes.
 
 ### USB
 
@@ -76,4 +76,22 @@ Important:
 - The board does **not** have charging circuitry for the battery
 - USB power is recommended.
 - Observe polarity if installing the battery
-- if using rechargable cells, **ONLY** use protected cells to prevent dammage to the cells. 
+- if using rechargeable cells, **ONLY** use protected cells to prevent damage to the cells.
+
+### Version 1.1
+
+version 1.1 is a in progress revision while the functionality is tested. 
+the goal is a focus on the battery and Bluetooth as i have learned more about batteries. 
+
+version 1.1 features 3 optional configurations: 
+
+-default "cr2032" state
+  this uses a cr2032 or other disposable 3v battery source
+-low voltage cutoff
+  this adds minimal components to add a low volt cutoff so you can use a rechargeable battery 
+-charger IC and low volt cutoff
+  with a low volt cutoff, this allows you to charge the battery from the USB connector. 
+
+the battery remains completely optional and only exists for Bluetooth connectivity
+
+  
