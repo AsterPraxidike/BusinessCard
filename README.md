@@ -78,6 +78,8 @@ Important:
 - Observe polarity if installing the battery
 - if using rechargeable cells, **ONLY** use protected cells to prevent damage to the cells.
 
+---
+
 ### Version 1.1
 
 version 1.1 is a in progress revision while the functionality is tested. 
