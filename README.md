@@ -21,7 +21,7 @@ It is intended to work as:
 
 
 The front of the card contains the keyboard matrix and visual identity.  
-The back contains optional battery, programming header, and personal contact information.
+The back contains optional battery and accompanying circuitry, programming header, and personal contact information.
 
 ---
 ## design philosiphy 
@@ -39,7 +39,7 @@ this is intended to be a showpiece of sorts for my capabilities as a designe.
 - USB HID keyboard mode
 - BLE HID keyboard mode
 - PCB trace antenna for 2.4 GHz
-- Optional 20 mm coin-cell footprint
+- Optional 20 mm coin-cell footprint and BMS circuitry
 - Programming/debug pads
 
 ---
@@ -48,17 +48,17 @@ this is intended to be a showpiece of sorts for my capabilities as a designe.
 
 ### MCU
 
-The board uses a **WCH CH582M**, a low-cost BLE-capable microcontroller with USB support and analog/touch-capable pins.
+The board uses a **WCH CH582M**, because it is both low cost, usb capable, has enough ADC inputs for my needs (12), and has great optional features like bluetooth. 
 
 ### Keyboard
 
 The keyboard is a 48-key capacitive matrix.
 
-The keys use interdigitated copper pads covered by solder mask. They are not mechanical switches. The firmware will scan the matrix by driving row electrodes and measuring capacitive changes on column electrodes.
+The keys use interdigitated copper pads covered by solder mask. They are not mechanical switches as that would add cost and complexity. The firmware will scan the matrix by driving row electrodes and measuring voltage on the ADC which is connected to every column. 
 
 ### USB
 
-The USB-C connector is implemented as a PCB edge connector.
+The USB-C connector is implemented as a PCB edge connector.as such, the board **MUST** be manufactured in 0.6 or 0.8mm thickness. 
 
 The board is intended to enumerate as a USB HID keyboard when connected over USB.
 
@@ -66,23 +66,39 @@ The board is intended to enumerate as a USB HID keyboard when connected over USB
 
 The CH582M provides Bluetooth Low Energy support. The intended wireless behavior is BLE HID keyboard mode.
 
-### Battery
+### Battery, charging, and protection
 
-The board has a footprint for a 20 mm coin-cell holder.
+The board accepts one 20 mm coin cell. A battery is not included.
 
-Important:
+Default CR2032 configuration
 
-- Battery is not included.
-- The board does **not** have charging circuitry for the battery
-- USB power is recommended.
-- Observe polarity if installing the battery
-- if using rechargeable cells, **ONLY** use protected cells to prevent damage to the cells.
+Revision 1.1 ships configured for a standard, non-rechargeable CR2032:
+
+USB power is recommended.
+The onboard charging path is disabled by default.
+The low-voltage cutoff is bypassed by default.
+Observe the marked battery polarity.
+Never attempt to charge a CR2032.
+
+The board can operate from USB without a battery installed.
+
+Optional rechargeable configuration
+
+The board includes footprints for an optional 1-cell lithium charging circuit and low-voltage cutoff. Enabling this configuration requires cutting the designated configuration traces and populating all required charging and protection components.
+
+
+Use only a compatible 1S 4.2 V rechargeable coin cell, such as an LIR2032.
+Only use a protected rechargeable cell.
+Charging current must not exceed 10 mA.
+No charge-status LED is provided.
+Never install a non-rechargeable CR2032 while the charging circuit is enabled.
+An unmodified board will not charge an installed rechargeable cell.
 
 ---
 
 ### Version 1.1
 
-version 1.1 is a in progress revision while the functionality is tested. 
+version 1.1 is an in progress revision while the functionality is tested. 
 the goal is a focus on the battery and Bluetooth as i have learned more about batteries. 
 
 version 1.1 features 3 optional configurations: 
